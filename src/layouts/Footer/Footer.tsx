@@ -1,7 +1,5 @@
 import React from 'react'
 
-interface IProps {}
-
-export const Footer: React.FC<IProps> = () => {
+export const Footer: React.FC = () => {
   return <div>Footer...</div>
 }
