@@ -1,6 +1,6 @@
-export type IEndpointProvider = 'V1' | 'MOCK';
+export type IEndpointProvider = 'V1' | 'MOCK'
 
-export type IMethod = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
+export type IMethod = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE'
 
 export type HTTPStatusCodes =
   | 200
@@ -15,11 +15,11 @@ export type HTTPStatusCodes =
   | 500
   | 502
   | 503
-  | 504;
+  | 504
 
 export interface IData<T> {
-  success: boolean;
-  code: HTTPStatusCodes;
-  message?: string;
-  data: T;
+  success: boolean
+  code: HTTPStatusCodes
+  message?: string
+  data: T
 }

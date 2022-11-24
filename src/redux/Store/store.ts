@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
+
 import counterReducer from '../Reducer/sample'
+
 export const store = configureStore({
   reducer: {
     counter: counterReducer,

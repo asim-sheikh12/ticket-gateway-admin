@@ -1,6 +1,8 @@
-import { RootState } from '@/redux/Store/store'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
+import type { RootState } from '@/redux/Store/store'
+
 import { increment } from '../../redux/Reducer'
 
 export const Login = () => {

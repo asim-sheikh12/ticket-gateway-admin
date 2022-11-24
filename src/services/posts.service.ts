@@ -1,7 +1,7 @@
-import { ApiVersions, Posts } from '@/constants';
-import type { IPost, Request } from '@/interfaces';
+import { ApiVersions, Posts } from '@/constants'
+import type { IPost, Request } from '@/interfaces'
 
-import { apiService } from './api.service';
+import { apiService } from './api.service'
 
 /**
  * @description Get all posts
@@ -10,5 +10,5 @@ import { apiService } from './api.service';
  * @url /posts
  */
 export const getPosts = (req: Request): Promise<IPost[]> => {
-  return apiService.get<IPost[], object>(Posts.ALL_POSTS, req, ApiVersions.V1);
-};
+  return apiService.get<IPost[], object>(Posts.ALL_POSTS, req, ApiVersions.V1)
+}

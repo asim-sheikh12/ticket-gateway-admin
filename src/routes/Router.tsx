@@ -1,7 +1,8 @@
-import { Login } from '../pages/Login'
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 import { Footer, Header } from '../layouts'
+import { Login } from '../pages/Login'
 import { PrivateRoutes } from './PrivateRoutes/privateRoutes'
 import { PublicRoutes } from './PublicRoutes/publicRoutes'
 import { privateRoutes, publicRoutes } from './RouteTypes'

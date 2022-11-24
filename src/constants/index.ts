@@ -1,2 +1,2 @@
-export * from './common.constant';
-export * from './url.constant';
+export * from './common.constant'
+export * from './url.constant'

@@ -1,6 +1,8 @@
-import React from 'react'
-import Routing from '../src/routes/Router'
 import './App.css'
+
+import React from 'react'
+
+import Routing from './routes/Router'
 
 function App() {
   return (

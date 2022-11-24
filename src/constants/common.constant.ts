@@ -1,12 +1,10 @@
-const basePath = `${
-  process.env.REACT_APP_BASE_URL ? process.env.REACT_APP_BASE_URL : ''
-}/icons/`;
+const basePath = `${process.env.REACT_APP_BASE_URL ? process.env.REACT_APP_BASE_URL : ''}/icons/`
 
 export const icons = {
   logoIcon: `${basePath}`,
-};
+}
 
-export const favIcons = `${process.env.REACT_APP_BASE_URL}/favicons`;
+export const favIcons = `${process.env.REACT_APP_BASE_URL}/favicons`
 
 export const enum ApiVersions {
   V1 = 'V1',
@@ -20,4 +18,4 @@ export const enum HttpMethods {
   PATCH = 'PATCH',
   DELETE = 'DELETE',
 }
-export const token = 'token';
+export const token = 'token'

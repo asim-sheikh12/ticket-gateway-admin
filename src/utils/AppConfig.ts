@@ -5,7 +5,7 @@ export const AppConfig = {
   locale: 'en',
   title: 'Description',
   description:
-    'Proactive For Her Blogs | Specialist written blogs on all facets of health that simplify medical knowledge. Proactive For Her is a Women\'s Digital Health Clinic.',
+    "Proactive For Her Blogs | Specialist written blogs on all facets of health that simplify medical knowledge. Proactive For Her is a Women's Digital Health Clinic.",
   tokenKey: 'token',
   paths: {
     // BASE: process.env.REACT_APP_BASE_URL!,

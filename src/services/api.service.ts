@@ -1,9 +1,9 @@
-import { ApiVersions, HttpMethods } from '@/constants';
-import type { IEndpointProvider, IMethod, Request } from '@/interfaces';
+import { ApiVersions, HttpMethods } from '@/constants'
+import type { IEndpointProvider, IMethod, Request } from '@/interfaces'
 
 export const queryOf = (params: Record<string, string> = {}): string => {
-  return new URLSearchParams(params).toString();
-};
+  return new URLSearchParams(params).toString()
+}
 
 const callApi = async <T, K>(
   method: IMethod,
@@ -12,24 +12,24 @@ const callApi = async <T, K>(
   _req: Request | null,
   base: IEndpointProvider,
 ): Promise<T> => {
-  let baseURL: string = '';
+  let baseURL = ''
   switch (base) {
     case ApiVersions.V1:
-      baseURL = process.env.NEXT_PUBLIC_API_URL!;
-      break;
+      baseURL = process.env.NEXT_PUBLIC_API_URL!
+      break
     case ApiVersions.MOCK:
-      baseURL = process.env.NEXT_PUBLIC_MOCK_API!;
-      break;
+      baseURL = process.env.NEXT_PUBLIC_MOCK_API!
+      break
     default:
-      break;
+      break
   }
-  const api: string = `${baseURL}${url}`;
+  const api = `${baseURL}${url}`
   const headers: { [x: string]: string } = {
     'Content-Type': 'application/json',
-  };
-  const token = localStorage.getItem('token');
+  }
+  const token = localStorage.getItem('token')
   if (token) {
-    headers.Authorization = `Bearer ${token}`;
+    headers.Authorization = `Bearer ${token}`
   }
 
   const options: RequestInit = {
@@ -40,35 +40,24 @@ const callApi = async <T, K>(
     headers,
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
-  };
-
-  if (
-    [HttpMethods.POST, HttpMethods.PUT, HttpMethods.PATCH].includes(
-      method as HttpMethods,
-    )
-  ) {
-    options.body = JSON.stringify(payload ?? {});
   }
 
-  const response: Response = await fetch(api, options);
+  if ([HttpMethods.POST, HttpMethods.PUT, HttpMethods.PATCH].includes(method as HttpMethods)) {
+    options.body = JSON.stringify(payload ?? {})
+  }
+
+  const response: Response = await fetch(api, options)
   if (!response?.ok) {
-    throw new Error(response?.statusText);
+    throw new Error(response?.statusText)
   }
-  return response.json();
-};
+  return response.json()
+}
 
 export const apiService = {
-  get: <T, K = {}>(
-    url: string,
-    req?: Request,
-    base: IEndpointProvider = ApiVersions.V1,
-  ) => callApi<T, K>(HttpMethods.GET, url, null, req ?? null, base),
-  post: <T, K>(
-    url: string,
-    payload: K,
-    req?: Request,
-    base: IEndpointProvider = ApiVersions.V1,
-  ) => callApi<T, K>(HttpMethods.POST, url, payload, req ?? null, base),
+  get: <T, K = {}>(url: string, req?: Request, base: IEndpointProvider = ApiVersions.V1) =>
+    callApi<T, K>(HttpMethods.GET, url, null, req ?? null, base),
+  post: <T, K>(url: string, payload: K, req?: Request, base: IEndpointProvider = ApiVersions.V1) =>
+    callApi<T, K>(HttpMethods.POST, url, payload, req ?? null, base),
   patch: <T, K = Record<string, string | number>>(
     url: string,
     payload: K,
@@ -81,9 +70,6 @@ export const apiService = {
     req?: Request,
     base: IEndpointProvider = ApiVersions.V1,
   ) => callApi<T, K>(HttpMethods.PUT, url, payload, req ?? null, base),
-  delete: <T, K = {}>(
-    url: string,
-    req?: Request,
-    base: IEndpointProvider = ApiVersions.V1,
-  ) => callApi<T, K>(HttpMethods.DELETE, url, null, req ?? null, base),
-};
+  delete: <T, K = {}>(url: string, req?: Request, base: IEndpointProvider = ApiVersions.V1) =>
+    callApi<T, K>(HttpMethods.DELETE, url, null, req ?? null, base),
+}

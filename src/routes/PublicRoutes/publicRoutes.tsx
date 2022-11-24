@@ -1,7 +1,8 @@
-import { URL } from '../../constants'
-import { isAuthenticated } from '../../utils'
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+
+import { URL } from '../../constants'
+import { isAuthenticated } from '../../utils'
 
 interface IProps {
   Component: React.FC
